@@ -19,5 +19,11 @@ public class BackstagePassQualityUpdater implements QualityUpdater {
                 item.quality = item.quality + 1;
             }
         }
+
+        item.sellIn--;
+
+        if (item.sellIn < 0) {
+            item.quality = 0;
+        }
     }
 }
