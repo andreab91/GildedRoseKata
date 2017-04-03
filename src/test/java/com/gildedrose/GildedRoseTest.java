@@ -26,7 +26,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void testRandomItemDecreaseByOneAfterOneDay() throws Exception {
+    public void testStandardItemDecreaseByOneAfterOneDay() throws Exception {
         Item[] items = new Item[] { new Item("foo", 1, 1) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -34,7 +34,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void testRandomItemDecreaseByTwoAfterSellDat() throws Exception {
+    public void testStandardItemDecreaseByTwoAfterSellDate() throws Exception {
         Item[] items = new Item[] { new Item("foo", 0, 2) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
