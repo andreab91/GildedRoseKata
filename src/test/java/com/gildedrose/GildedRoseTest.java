@@ -10,14 +10,6 @@ import org.junit.Test;
 public class GildedRoseTest {
 
     @Test
-    public void testItemQualityNeverAbove50() throws Exception {
-        Item[] items = new Item[] { new Item("Aged Brie", 1, 50) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals(50, app.items[0].quality);
-    }
-
-    @Test
     public void testItemQualityAlwaysPositive() throws Exception {
         Item[] items = new Item[] { new Item("foo", 1, 0) };
         GildedRose app = new GildedRose(items);
@@ -26,11 +18,25 @@ public class GildedRoseTest {
     }
 
     @Test
+    public void testItemQualityNeverAbove50() throws Exception {
+        Item[] items = new Item[] { new Item("Aged Brie", 1, 50) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(50, app.items[0].quality);
+    }
+
+    @Test
     public void testStandardItemDecreaseByOneAfterOneDay() throws Exception {
-        Item[] items = new Item[] { new Item("foo", 1, 1) };
+        Item[] items = new Item[] {
+                new Item("+5 Dexterity Vest", 1, 1),
+                new Item("Elixir of the Mongoose", 1, 1),
+                new Item("foo", 1, 1),
+        };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(0, app.items[0].quality);
+        assertEquals(0, app.items[1].quality);
+        assertEquals(0, app.items[2].quality);
     }
 
     @Test

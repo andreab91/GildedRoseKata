@@ -3,16 +3,16 @@ package main.java.com.gildedrose;
 /**
  * Created by andrea on 03/04/17.
  */
-public class QualityUpdaterFactory {
+class QualityUpdaterFactory {
     public static QualityUpdater create(Item item) {
         if(item.name.contains("Aged Brie")) {
-            return null;
+            return new AgedBrieQualityUpdater();
         }
         else if(item.name.contains("Sulfuras")) {
-            return null;
+            return new SulfurasQualityUpdater();
         }
         else if(item.name.contains("Backstage passes")) {
-            return null;
+            return new BackstagePassQualityUpdater();
         }
         else {
             return new StandardQualityUpdater();
