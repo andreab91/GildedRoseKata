@@ -14,6 +14,9 @@ class QualityUpdaterFactory {
         else if(item.name.contains("Backstage passes")) {
             return new BackstagePassQualityUpdater();
         }
+        else if(item.name.contains("Conjured")) {
+            return new ConjuredQualityUpdater();
+        }
         else {
             return new StandardQualityUpdater();
         }

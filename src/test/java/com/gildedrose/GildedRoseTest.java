@@ -10,6 +10,22 @@ import org.junit.Test;
 public class GildedRoseTest {
 
     @Test
+    public void testConjuredQualityDecreaseTwiceAsNormal() throws Exception {
+        Item[] items = new Item[] { new Item("Conjured", 1, 2) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(0, app.items[0].quality);
+    }
+
+    @Test
+    public void testConjuredQualityDecreaseTwiceAsNormalAfterSellDate() throws Exception {
+        Item[] items = new Item[] { new Item("Conjured", 0, 4) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(0, app.items[0].quality);
+    }
+
+    @Test
     public void testItemQualityAlwaysPositive() throws Exception {
         Item[] items = new Item[] { new Item("foo", 1, 0) };
         GildedRose app = new GildedRose(items);

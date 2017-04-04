@@ -6,13 +6,17 @@ package main.java.com.gildedrose;
 public class AgedBrieQualityUpdater implements QualityUpdater {
     @Override
     public void updateQualityOf(Item item) {
-        if(item.quality < 50) {
-            item.quality = item.quality + 1;
-        }
+        increaseQuality(item);
 
         item.sellIn--;
 
         if(item.sellIn < 0) {
+            increaseQuality(item);
+        }
+    }
+
+    private void increaseQuality(Item item) {
+        if(item.quality < 50) {
             item.quality = item.quality + 1;
         }
     }

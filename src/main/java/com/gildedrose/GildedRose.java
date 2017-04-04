@@ -8,9 +8,9 @@ public class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            QualityUpdater qualityUpdater = QualityUpdaterFactory.create(items[i]);
-            qualityUpdater.updateQualityOf(items[i]);
+        for (Item item : items) {
+            QualityUpdater qualityUpdater = QualityUpdaterFactory.create(item);
+            qualityUpdater.updateQualityOf(item);
         }
     }
 }
