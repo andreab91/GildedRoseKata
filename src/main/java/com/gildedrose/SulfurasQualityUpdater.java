@@ -7,6 +7,6 @@ public class SulfurasQualityUpdater implements QualityUpdater {
     @Override
     public void updateQualityOf(Item item) {
         // nothing to do here...
-        // Sulfuras has quality of 80 which never changes
+        // Sulfuras has a quality of 80 which never changes
     }
 }

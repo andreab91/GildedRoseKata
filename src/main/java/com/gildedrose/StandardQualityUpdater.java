@@ -8,7 +8,7 @@ public class StandardQualityUpdater implements QualityUpdater {
     public void updateQualityOf(Item item) {
         decreaseQuality(item);
 
-        item.sellIn--;
+        item.sellIn = item.sellIn - 1;
 
         if (item.sellIn < 0) {
             decreaseQuality(item);
@@ -16,8 +16,8 @@ public class StandardQualityUpdater implements QualityUpdater {
     }
 
     private void decreaseQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
+        if (item.quality > MIN_QUALITY) {
+            item.quality = item.quality - STANDARD_QUALITY_DECREASE;
         }
     }
 }
