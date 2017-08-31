@@ -79,4 +79,44 @@ public class GildedRoseTest {
 
         assertEquals(1, app.items[0].quality);
     }
+
+    @Test
+    public void backstage_passes_increase_in_quality() throws Exception {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 20, 1) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(2, app.items[0].quality);
+    }
+
+    @Test
+    public void backstage_passes_increase_in_quality_by_2_when_10_days_left() throws Exception {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 1) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(3, app.items[0].quality);
+    }
+
+    @Test
+    public void backstage_passes_increase_in_quality_by_2_when_5_days_left() throws Exception {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 1) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(4, app.items[0].quality);
+    }
+
+    @Test
+    public void backstage_passes_quality_drops_to_0_after_due_date() throws Exception {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
 }
