@@ -26,4 +26,15 @@ public class GildedRoseTest {
         assertEquals(-2, app.items[0].sellIn);
         assertEquals(0, app.items[0].quality);
     }
+    
+    @Test
+    public void quality_of_an_item_is_never_negative() throws Exception {
+        Item[] items = new Item[] { new Item("Any item", 5, 0) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(4, app.items[0].sellIn);
+        assertEquals(0, app.items[0].quality);
+    }
 }
