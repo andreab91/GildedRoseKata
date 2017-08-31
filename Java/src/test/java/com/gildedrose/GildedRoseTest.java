@@ -119,4 +119,24 @@ public class GildedRoseTest {
 
         assertEquals(0, app.items[0].quality);
     }
+
+    @Test
+    public void conjured_item_degrades_in_quality_by_2_before_sell_in_date() throws Exception {
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 6, 10) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(8, app.items[0].quality);
+    }
+
+    @Test
+    public void conjured_item_degrades_in_quality_by_4_after_sell_in_date() throws Exception {
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 0, 10) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(6, app.items[0].quality);
+    }
 }
