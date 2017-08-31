@@ -59,4 +59,24 @@ public class GildedRoseTest {
         assertEquals(4, app.items[0].sellIn);
         assertEquals(50, app.items[0].quality);
     }
+
+    @Test
+    public void sulfuras_sell_in_date_never_decrease() throws Exception {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 10, 1) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(10, app.items[0].sellIn);
+    }
+
+    @Test
+    public void sulfuras_quality_never_degrades() throws Exception {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 10, 1) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(1, app.items[0].quality);
+    }
 }
